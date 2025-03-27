@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|d:\\\u0111\u1ED3 \u00E1n c\u01A1 s\u1EDF\\dacs_qlks14\\dacs_qlks13\\dacs_qlks13\\dacs_qlks\\dacs_qlks\\areas\\user\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|solutionrelative:dacs_qlks\\areas\\user\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|d:\\\u0111\u1ED3 \u00E1n c\u01A1 s\u1EDF\\dacs_qlks14\\dacs_qlks13\\dacs_qlks13\\dacs_qlks\\dacs_qlks\\areas\\user\\views\\home\\news.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|solutionrelative:dacs_qlks\\areas\\user\\views\\home\\news.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|d:\\\u0111\u1ED3 \u00E1n c\u01A1 s\u1EDF\\dacs_qlks14\\dacs_qlks13\\dacs_qlks13\\dacs_qlks\\dacs_qlks\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|solutionrelative:dacs_qlks\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|d:\\\u0111\u1ED3 \u00E1n c\u01A1 s\u1EDF\\dacs_qlks14\\dacs_qlks13\\dacs_qlks13\\dacs_qlks\\dacs_qlks\\models\\phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|solutionrelative:dacs_qlks\\models\\phong.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|d:\\\u0111\u1ED3 \u00E1n c\u01A1 s\u1EDF\\dacs_qlks14\\dacs_qlks13\\dacs_qlks13\\dacs_qlks\\dacs_qlks\\models\\tintuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F14ADB8C-A285-4256-A97D-0D18AEA57DEF}|DACS_QLKS\\DACS_QLKS.csproj|solutionrelative:dacs_qlks\\models\\tintuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 187,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "news.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Areas\\User\\Views\\Home\\news.cshtml",
+              "RelativeDocumentMoniker": "DACS_QLKS\\Areas\\User\\Views\\Home\\news.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Areas\\User\\Views\\Home\\news.cshtml",
+              "RelativeToolTip": "DACS_QLKS\\Areas\\User\\Views\\Home\\news.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAADEAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-31T13:48:02.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "DACS_QLKS\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "DACS_QLKS\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T13:41:45.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Phong.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Models\\Phong.cs",
+              "RelativeDocumentMoniker": "DACS_QLKS\\Models\\Phong.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Models\\Phong.cs",
+              "RelativeToolTip": "DACS_QLKS\\Models\\Phong.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T13:41:35.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TinTuc.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Models\\TinTuc.cs",
+              "RelativeDocumentMoniker": "DACS_QLKS\\Models\\TinTuc.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Models\\TinTuc.cs",
+              "RelativeToolTip": "DACS_QLKS\\Models\\TinTuc.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T13:40:45.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Areas\\User\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "DACS_QLKS\\Areas\\User\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n c\u01A1 s\u1EDF\\DACS_QLKS14\\DACS_QLKS13\\DACS_QLKS13\\DACS_QLKS\\DACS_QLKS\\Areas\\User\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "DACS_QLKS\\Areas\\User\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwDYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T13:38:16.293Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

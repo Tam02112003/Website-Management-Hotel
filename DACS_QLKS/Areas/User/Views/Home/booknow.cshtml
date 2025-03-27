@@ -1,0 +1,324 @@
+﻿  @model Booking
+<html lang="en">
+<head>
+    <title>LuxuryHotel a Hotel Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="~/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/User/Home/index">NTĐ Hotel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                    <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/User/Home/index">Trang chủ</a>
+                        </li>
+                        <vc:loai-phong></vc:loai-phong>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/User/Home/news">Tin tức & Sự kiện</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/User/Home/about">Khám phá</a>
+                        </li>
+
+
+                        <li class="nav-item cta">
+                            <a class="nav-link" href="/User/Home/rooms"><span>Đặt ngay</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="User" asp-controller="Booking" asp-action="MyBookings" title="Manage">Đơn Phòng của tôi</a>
+                        </li>
+
+
+
+                        <partial name="_LoginPartial" />
+                    </ul>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- END header -->
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(/images/big_image_1.jpg);">
+        <div class="container">
+            <div class="row align-items-center site-hero-inner justify-content-center">
+                <div class="col-md-12 text-center">
+
+                    <div class="mb-5 element-animate">
+                        <h1>ĐẶT PHÒNG</h1>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var modelStateEntry in ViewData.ModelState.Values)
+                {
+                    foreach (var error in modelStateEntry.Errors)
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                }
+            </ul>
+        </div>
+    }
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <section class="site-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="mb-5">THÔNG TIN ĐẶT PHÒNG</h2>
+
+                       
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+
+                                    <label asp-for="CheckInDate">Ngày đến</label>
+                                    <div style="position: relative;">
+                                        <span asp-validation-for="CheckInDate" style="position: absolute; right: 10px; top: 10px;"></span>
+                                        <input asp-for="CheckInDate" type="date" class="form-control" />
+                                        <p id="check-in-error" class="error"></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label asp-for="CheckOutDate">Ngày trả phòng</label>
+                                    <div style="position: relative;">
+                                        <span asp-validation-for="CheckOutDate" style="position: absolute; right: 10px; top: 10px;"></span>
+                                        <input asp-for="CheckOutDate" type="date" class="form-control" />
+                                        <p id="check-out-error" class="error"></p>
+                                    </div>
+                                </div>
+                            </div>
+                           @*  <button id="checkAvailabilityBtn" class="btn btn-primary">Kiểm tra Phòng</button> *@
+
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>Email</label>
+                                    <input type="text" asp-for="CustomerEmail" name="CustomerEmail" class="form-control" required>
+                                    <p id="email-error" class="error"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>Tên</label>
+                                    <input type="text" asp-for="CustomerName" class="form-control" required>
+                                    <p id="name-error" class="error"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>SĐT</label>
+                                    <input type="text" asp-for="CustomerPhone" type="number" class="form-control" required>
+                                    <p id="phone-error" class="error"></p>
+                                </div>
+                            </div>
+                         
+                    </div>
+                    <div class="room__grid">
+                       
+                        <h1>Phòng của bạn</h1>
+                            <div class="room__card" data-price="@Model.Phong.Price">
+                                <div class="room__card__image">
+                                    <img src="@Model.Phong.ImgUrl" style="width:100% ; height:150px" alt="room" />
+                                </div>
+                                <div class="room__card__details">
+                                    <h4>@Model.Phong.Name</h4>
+                                    <ul class="room-specs">
+                                        <i style="padding: 0 20px 20px 0; color:teal"><span class="ion-ios-people-outline"></span> @Model.Phong.MaxOccupancy Khách</i>
+                                        <i style="padding: 0 20px 20px 0; color:teal"><span class="ion-ios-crop"></span> @Model.Phong.Size m <sup>2</sup></i>
+                                    </ul>
+                                    <p><button id="checkAvailabilityBtn" type="button" class="btn btn-primary">@String.Format("{0:0,0}", Model.Phong.Price) VND/Đêm </button></p>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END section -->
+
+    </form>
+
+
+    <section class="section-cover" data-stellar-background-ratio="0.5" style="background-image: url(/images/img_3.jpg);">
+        <div class="container">
+            <div class="row justify-content-center align-items-center intro">
+                <div class="col-md-9 text-center element-animate">
+                    <h2>RELAX & ENJOY </h2>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+    <!-- Cuối cùng, thêm JavaScript để khởi tạo Datepicker -->
+    <!-- END section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <h3>Hỗ trợ</h3>
+                    <p>24/7 Gọi Ngay.</p>
+                    <p class="lead"><a href="tel://">+84776830466 </a></p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <p>Theo dõi ngay</p>
+                    <p>
+                        <a href="#" class="pl-0 p-3"><span class="fa fa-facebook"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-twitter"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-instagram"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-vimeo"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-youtube-play"></span></a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- END footer -->
+    <!-- loader -->
+</body>
+</html>
+
+<script>
+    document.getElementById("CheckInDate").addEventListener("input", validateDates);
+    document.getElementById("CheckOutDate").addEventListener("input", validateDates);
+
+    function validateDates() {
+        var checkInDate = document.getElementById("CheckInDate").value;
+        var checkOutDate = document.getElementById("CheckOutDate").value;
+        var checkInError = document.getElementById("check-in-error");
+        var checkOutError = document.getElementById("check-out-error");
+
+
+        if (checkInDate === "" || checkOutDate === "") {
+            checkInError.innerHTML = "Vui lòng nhập đầy đủ ngày đến và ngày trả phòng.";
+            checkOutError.innerHTML = "";
+            return;
+        }
+
+        if (checkInDate > checkOutDate) {
+            checkInError.innerHTML = "Ngày đến không thể sau ngày trả phòng.";
+            checkOutError.innerHTML = "";
+            return;
+        }
+
+        checkInError.innerHTML = "";
+        checkOutError.innerHTML = "";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        var checkInDateInput = document.getElementById("CheckInDate");
+        var currentDate = new Date().toISOString().split("T")[0];
+        checkInDateInput.setAttribute("min", currentDate);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        var phongId = urlParams.get('phongid');
+
+        document.getElementById("checkAvailabilityBtn").addEventListener("click", function () {
+            var checkInDate = document.getElementById("CheckInDate").value;
+            var checkOutDate = document.getElementById("CheckOutDate").value;
+            var email = document.querySelector("[name='CustomerEmail']").value;
+            var name = document.querySelector("[name='CustomerName']").value;
+            var phone = document.querySelector("[name='CustomerPhone']").value;
+
+            var emailError = document.getElementById("email-error");
+            var nameError = document.getElementById("name-error");
+            var phoneError = document.getElementById("phone-error");
+            // Reset lỗi
+            emailError.innerHTML = "";
+            nameError.innerHTML = "";
+            phoneError.innerHTML = "";
+            var hasError = false;
+
+            // Kiểm tra các trường bắt buộc
+            if (!email) {
+                emailError.innerHTML = "Vui lòng nhập email.";
+                hasError = true;
+            }
+            if (!name) {
+                nameError.innerHTML = "Vui lòng nhập tên.";
+                hasError = true;
+            }
+            if (!phone) {
+                phoneError.innerHTML = "Vui lòng nhập SĐT.";
+                hasError = true;
+            }
+
+            if (hasError) {
+                return; // Nếu có lỗi, dừng lại và không gửi form
+            }
+            // Gửi yêu cầu AJAX đến server để kiểm tra tính khả dụng của phòng
+            $.ajax({
+                url: '/User/Home/CheckRoomAvailability',
+                type: 'POST',
+                data: {
+                    checkInDate: checkInDate,
+                    checkOutDate: checkOutDate,
+                    phongId: phongId
+                },
+                success: function (response) {
+                    if (response.available) {
+                        // alert("Phòng khả dụng trong thời gian đã chọn!");
+                        $("form").submit();
+                    } else {
+                        alert("Phòng không khả dụng trong thời gian đã chọn. Vui lòng chọn thời gian khác!");
+                    }
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi khi kiểm tra tính khả dụng của phòng. Vui lòng thử lại sau!");
+                }
+            });
+        });
+    });
+</script>

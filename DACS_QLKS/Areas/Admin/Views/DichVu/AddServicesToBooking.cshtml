@@ -1,0 +1,219 @@
+﻿@model BookingViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modernize Free</title>
+    <link rel="shortcut icon" type="image/png" href="~/assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="~/assets/css/styles.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <title>Menu Dịch vụ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            margin-top: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .quantity input[type="number"] {
+            width: 40px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .quantity button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            .quantity button:hover {
+                background-color: #555;
+            }
+
+        .add-button {
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            .add-button:hover {
+                background-color: #555;
+            }
+
+        .back-button {
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            .back-button:hover {
+                background-color: #555;
+            }
+    </style>
+</head>
+<body>
+
+    <form method="post" asp-action="AddServicesToBooking">
+    <div class="container-fluid">
+
+        <div class="row">
+
+
+
+
+            <section class="site-hero overlay" data-stellar-background-ratio="0.5" style="background-image: url(/images/big_image_1.jpg);">
+                <div class="container">
+                    <div class="row align-items-center site-hero-inner justify-content-center">
+                        <div class="col-md-12 text-center">
+
+                            <div class="mb-5 element-animate">
+                                <h1>Sử dụng Dịch Vụ</h1>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dịch vụ</th>
+                            <th>Hình ảnh</th>
+                            <th>Giá</th>
+                            <th>Mô tả</th>
+                            <th>Số lượng</th>
+
+
+                        </tr>
+                    </thead>
+                    
+            <input type="hidden" name="bookingId" value="@Model.Booking.Id" />
+            @foreach (var service in Model.AvailableServices)
+            {
+        <tr>
+                <td>
+                   
+                        @service.ServiceName
+                </td>
+                <td><img height="150" width="150" src="@service.ImgUrl" /></td>
+                <td>@String.Format("{0:0,0}",service.Price) VND</td>
+                <td>@service.Description</td>
+            <td class="quantity">
+                    <button class="decrease">-</button>
+                    <input type="number" name="selectedServiceQuantities[@service.Id]" min="0" value="0">
+                    <button class="increase">+</button>
+            </td>
+        </tr>
+
+            }
+                   
+                    
+                </table>
+
+
+                    <button type="submit" class="btn btn-primary">Thêm dịch vụ</button>
+                    <button class="back-button" onclick="goBack()">Quay lại</button>
+
+            </div>
+        </div>
+    </div>
+</form>
+            @* <script>
+            function xoa(id, row) {
+            $.ajax({
+            url: `/Admin/DichVu/delete/${id}`,
+            type: "POST",
+            success: function (data) {
+            row.closest("tr").remove();
+            }
+            })
+            }
+            </script> *@
+        
+        @* <div class="py-6 px-6 text-center">
+        <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+        </div> *@
+    
+    <div class="footer">
+        <p>&copy; 2024 Khách sạn DNT. All rights reserved.</p>
+    </div>
+    <script>
+        // Lấy tất cả các phần tử button có class "increase" và "decrease"
+        const increaseButtons = document.querySelectorAll(".increase");
+        const decreaseButtons = document.querySelectorAll(".decrease");
+
+        // Đặt sự kiện click cho tất cả các nút tăng giảm số lượng
+        increaseButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định (tránh tải lại trang)
+                const input = button.parentElement.querySelector("input[type='number']");
+                input.stepUp();
+            });
+        });
+
+        decreaseButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định (tránh tải lại trang)
+                const input = button.parentElement.querySelector("input[type='number']");
+                input.stepDown();
+            });
+        });
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

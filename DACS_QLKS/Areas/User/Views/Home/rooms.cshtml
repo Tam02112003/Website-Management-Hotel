@@ -1,0 +1,317 @@
+﻿@model IEnumerable<Phong>
+<html lang="en">
+<head>
+    <title>LuxuryHotel a Hotel Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Rubik:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="~/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="~/css/styles.css">
+    <link rel="stylesheet" href="path/to/range-slider.css">
+    <script src="path/to/range-slider.js"></script>
+    <style>
+        .group {
+            background-color: #CBC2B9;
+            width: 300px;
+            margin: 100px auto;
+            height: 10px;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 2px #9d968f;
+            position: relative;
+        }
+
+        .range-input input {
+            -webkit-appearance: none;
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            margin: 0;
+            background-color: transparent;
+            transform: translateY(2px);
+            pointer-events: none;
+        }
+
+            .range-input input::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 17px;
+                height: 17px;
+                background-color: #98C787;
+                border: 3px solid #cae08e;
+                border-radius: 50%;
+                box-shadow: inset 0 1px 2px #6f9163, 0 0 1px #6f9163;
+                pointer-events: auto;
+            }
+
+        .progress {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            right: 0;
+            background-image: repeating-linear-gradient( -45deg, #C7DB6B 0, #C7DB6B 3px, #b7ca63 3px, #b7ca63 6px );
+            border-radius: 5px;
+            background-attachment: fixed;
+        }
+
+        .range-text div {
+            position: absolute;
+            background-color: #6f9163;
+            color: #eee;
+            font-size: 7px;
+            padding: 5px;
+            left: 0;
+            width: auto;
+            text-align: center;
+            border-radius: 3px;
+            top: 15px;
+            transform: translateX(-50%);
+        }
+
+        .range-text .text-max {
+            left: unset;
+            right: 0;
+            transform: translateX(50%);
+        }
+
+        .occupancy-filter {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="/User/Home/index">NTĐ Hotel</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                    <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/User/Home/index">Trang chủ</a>
+                        </li>
+                        <vc:loai-phong></vc:loai-phong>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/User/Home/news">Tin tức & Sự kiện</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/User/Home/about">Khám phá</a>
+                        </li>
+
+
+                        <li class="nav-item cta">
+                            <a class="nav-link" href="/User/Home/rooms"><span>Đặt ngay</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="User" asp-controller="Booking" asp-action="MyBookings" title="Manage">Đơn Phòng của tôi</a>
+                        </li>
+
+
+
+                        <partial name="_LoginPartial" />
+                    </ul>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- END header -->
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url(/images/big_image_1.jpg);">
+        <div class="container">
+            <div class="row align-items-center site-hero-inner justify-content-center">
+                <div class="col-md-12 text-center">
+
+                    <div class="mb-5 element-animate">
+                        <h1>PHÒNG</h1>
+                       
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+
+
+    <section class="section__container room__container">
+        <p class="section__subheader">Danh sách Phòng</p>
+        <h2 class="section__header">Khoảng thời gian nghỉ ngơi đáng nhớ nhất bắt đầu từ đây.</h2>
+        <div class="room-search-container">
+            <div class="room-search-filters">
+                <div class="group">
+                    <div class="progress"></div>
+                    <div class="range-input">
+                        <input class="range-min" max="1000000" type="range" value="0">
+                        <input class="range-max" max="1000000" type="range" value="1000000">
+                    </div>
+                    <div class="range-text">
+                        <div class="text-min">0</div>
+                        <div class="text-max">1.000.000</div>
+                    </div>
+                </div>
+                <div class="occupancy-filter">
+                    <input type="number" min="0" id="occupancy-filter" placeholder="Số người" />
+                    <button id="search-button" class="btn">Tìm</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="room__grid">
+            @foreach (var item in @Model)
+            {
+                <div class="room__card" data-price="@item.Price" data-maxoccupancy="@item.MaxOccupancy">
+                    <div class="room__card__image">
+                        <a asp-action="Details" asp-route-phongid="@item.Id"><img src="@item.ImgUrl" style="width:100% ; height:150px" alt="room" /></a>
+                    </div>
+                    <div class="room__card__details">
+                        <h4>@item.Name</h4>
+                        <ul class="room-specs">
+                            <i style="padding: 0 20px 20px 0; color:teal"><span class="ion-ios-people-outline"></span> @item.MaxOccupancy Khách</i>
+                            <i style="padding: 0 20px 20px 0; color:teal"><span class="ion-ios-crop"></span> @item.Size m <sup>2</sup></i>
+                        </ul>
+                        <h4>@String.Format("{0:0,0}", item.Price) VND/Đêm</h4>
+                        <a asp-action="Details" asp-route-phongid="@item.Id" style="background-color: #b99365; color: white" class="btn">
+                            Chi tiết Phòng
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <script>
+        // Get the search button and occupancy filter
+        const searchButton = document.getElementById('search-button');
+        const occupancyFilter = document.getElementById('occupancy-filter');
+
+        // Get the range input elements
+        const rangeInput = document.querySelectorAll('.range-input input');
+        const rangeText = document.querySelectorAll('.range-text div');
+        const progress = document.querySelector('.progress');
+        const priceMax = rangeInput[0].max;
+        const priceGap = 1000;
+
+        // Add event listeners to range inputs
+        rangeInput.forEach(input => {
+            input.addEventListener('input', () => {
+                updatePriceRange();
+                filterRooms();
+            });
+        });
+
+        // Update the price range UI
+        function updatePriceRange() {
+            let minVal = parseInt(rangeInput[0].value);
+            let maxVal = parseInt(rangeInput[1].value);
+
+            if (maxVal - minVal < priceGap) {
+                if (event.target.className === 'range-min') {
+                    minVal = rangeInput[0].value = maxVal - priceGap;
+                } else {
+                    maxVal = rangeInput[1].value = minVal + priceGap;
+                }
+            }
+
+            let positionMin = (minVal / priceMax) * 100;
+            let positionMax = 100 - ((maxVal / priceMax) * 100);
+            progress.style.left = positionMin + '%';
+            progress.style.right = positionMax + '%';
+            rangeText[0].style.left = positionMin + '%';
+            rangeText[1].style.right = positionMax + '%';
+            rangeText[0].innerText = minVal.toLocaleString();
+            rangeText[1].innerText = maxVal.toLocaleString();
+        }
+
+        // Get all the room cards
+        const roomCards = document.querySelectorAll('.room__card');
+
+        // Filter rooms based on price and occupancy
+        function filterRooms() {
+            const minPrice = parseInt(rangeInput[0].value);
+            const maxPrice = parseInt(rangeInput[1].value);
+            const selectedOccupancy = parseInt(occupancyFilter.value);
+
+            roomCards.forEach(card => {
+                const price = parseInt(card.getAttribute('data-price'));
+                const maxOccupancy = parseInt(card.dataset.maxoccupancy);
+
+                if (price >= minPrice && price <= maxPrice && maxOccupancy === selectedOccupancy) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add a click event listener to the search button
+        searchButton.addEventListener('click', filterRooms);
+    </script>
+
+
+
+    <section class="section-cover" data-stellar-background-ratio="0.5" style="background-image: url(/images/img_3.jpg);">
+        <div class="container">
+            <div class="row justify-content-center align-items-center intro">
+                <div class="col-md-9 text-center element-animate">
+                    <h2>RELAX & ENJOY </h2>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+    <!-- END section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <h3>Hỗ trợ</h3>
+                    <p>24/7 Gọi Ngay.</p>
+                    <p class="lead"><a href="tel://">+84776830466 </a></p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <p>Theo dõi ngay</p>
+                    <p>
+                        <a href="#" class="pl-0 p-3"><span class="fa fa-facebook"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-twitter"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-instagram"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-vimeo"></span></a>
+                        <a href="#" class="p-3"><span class="fa fa-youtube-play"></span></a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- END footer -->
+    <!-- loader -->
+
+</body>
+</html>
